@@ -1,5 +1,6 @@
 ###########################TP2###########################
 import TP1
+import TP3
 def prodvect(u,v):
     return [u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
 
@@ -22,13 +23,20 @@ def rotation(h,F,A,G,I,teta,tetap):
     Y = 0
     Z = 0
     for i in range (len(F)):
-        MomentValue = moment(F[i], A[i], G)
-        X += MomentValue[0]
-        Y += MomentValue[1]
-        Z += MomentValue[2]
-    SommeMoment.extend([X,Y,Z])
-    Omega = TP1.prodmat(TP1.inverse(I),SommeMoment)
-    newTetap = [solve1(tetap[0], Omega[0], h), solve1(tetap[1], Omega[1], h),solve1(tetap[2], Omega[2], h)]
+        for j in range (len(A)):
+            MomentValue = moment(F[i], A[j], G)
+            X += MomentValue[0]
+            Y += MomentValue[1]
+            Z += MomentValue[2]
+    SommeMoment.extend([[X],[Y],[Z]])
+    
+    print("I (Matrice d'inertie) :", I)  # Affiche I
+    print("I inverse :", TP1.inverse(I))  # Vérifie l'inverse
+    print("SommeMoment :", SommeMoment)  # Vérifie que c'est bien une liste de 3 valeurs
+
+
+    Omega = TP1.prodmat(TP1.inverse(I), SommeMoment)
+    newTetap = [solve1(tetap[0], Omega[0][0], h), solve1(tetap[1], Omega[1][0], h),solve1(tetap[2], Omega[2][0], h)]
     newTeta = [solve1(teta[0], newTetap[0], h), solve1(teta[1], newTetap[1], h),solve1(teta[2], newTetap[2], h)]
     return newTeta, newTetap
 

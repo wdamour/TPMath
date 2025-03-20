@@ -83,5 +83,5 @@ def inverse(A):
 
 M = [[1,2,3],[45,67,12],[0,9,0]]
 
-printMatrix(inverse(M))
+#printMatrix(inverse(M))
 

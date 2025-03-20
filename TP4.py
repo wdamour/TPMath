@@ -144,7 +144,7 @@ def cylindre_plein(R,h,x0,y0,z0,n,nb_h,maxOutercircle=6):
         
     
 
-X, Y, Z = cylindre_plein(5, 5,0, 0, 0,100, 4)
-plot_list_points(X, Y, Z)
+#X, Y, Z = cylindre_plein(5, 5,0, 0, 0,100, 4)
+#plot_list_points(X, Y, Z)
 
     
