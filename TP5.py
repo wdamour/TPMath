@@ -88,8 +88,8 @@ cylindre = TP4.cylindre_plein(5,10,0,0,0,500,5, 10)
 m = 10
 I = TP3.matrice_inert(cylindre, m)
 G = TP3.centre_inert(cylindre)
-v = [1,-2,3]
-teta = [1,3,0]
-tetap = [1,1,1]
+v = [1,0,0]
+teta = [1,0,0]
+tetap = [0,0,1]
 F = [[0,0,-100],[100,0,0]]
 trace_mouvements(cylindre, m, I, G, v, teta, tetap, F, [G], 2, 1, 5)
